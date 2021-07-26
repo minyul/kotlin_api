@@ -9,24 +9,24 @@ class GetApi {
 
     @GetMapping("/hello") // path = ["/hello"] 도 가능 하고, ["hello"] 도 가능
     fun hello(): String {
-        return "hello kotlin";
+        return "hello kotlin"
     }
 
     @RequestMapping(method = [RequestMethod.GET], path = ["/hello-2"])
     fun helloV2() : String {
-        return "hello_2 kotelin";
+        return "hello_2 kotelin"
     }
 
     @GetMapping("/get-mapping/{name}/{age}")
     fun pathVariableTestMethod(@PathVariable name: String, @PathVariable(value = "age") _age : Int) : String {
-        println("${name}, ${_age}");
+        println("${name}, ${_age}")
 
         return name;
     }
 
     @GetMapping("/get-mapping/query-param")
     fun queryParam(@RequestParam name: String) : String {
-        return name;
+        return name
     }
 
     // *******************************************
@@ -35,13 +35,13 @@ class GetApi {
     // *******************************************
     @GetMapping("/get-mapping/object")
     fun queryParamObject(request: UserRequest) : UserRequest {
-            return request;
+            return request
     }
 
     // 위에있는것처럼 age=10&name=minyul 이렇게 queryString으로 보내면돼.
     @GetMapping("/get-mapping/query-param/map")
     fun queryParamMap(@RequestParam map : Map<String,Any>): Map<String, Any> {
-        val phoneNumber = map.get("phone-number");
-        return map;
+        val phoneNumber = map.get("phone-number")
+        return map
     }
 }
