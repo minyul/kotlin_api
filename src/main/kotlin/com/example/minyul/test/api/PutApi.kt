@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PutMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
+import javax.validation.Valid
 
 @RestController
 @RequestMapping("/api")
@@ -19,7 +20,7 @@ class PutApi {
 
     // Put은 내용이 없으면 생성하고 있으면 수정
     @PutMapping(path = ["/put-mapping/object"])
-    fun putMappingObject(@RequestBody request : UserRequest): UserRequest {
+    fun putMappingObject(@Valid @RequestBody request : UserRequest): UserRequest {
 
         val apply = UserResponse().apply {
             this.result = Result().apply {
