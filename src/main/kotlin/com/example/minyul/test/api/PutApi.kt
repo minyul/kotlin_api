@@ -21,8 +21,8 @@ class PutApi {
     @PutMapping(path = ["/put-mapping/object"])
     fun putMappingObject(@RequestBody request : UserRequest): UserRequest {
 
-        UserResponse().apply {
-            this.result =  Result().apply {
+        val apply = UserResponse().apply {
+            this.result = Result().apply {
                 this.resultCode = "OK"
                 this.resultMessage = "성공"
             }
@@ -32,8 +32,8 @@ class PutApi {
             val userList = mutableListOf<UserRequest>()
             userList.add(request)
             userList.add(UserRequest().apply {
-              this.name = "a"
-              this.age = 10
+                this.name = "a"
+                this.age = 10
             })
             this.userRequest = userList
         }
