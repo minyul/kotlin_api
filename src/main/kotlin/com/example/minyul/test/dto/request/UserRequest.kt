@@ -35,6 +35,8 @@ data class UserRequest (
     @JsonProperty("phone_number")
     var phoneNumber:String?= null,
 
+    // 커스텀으로 이제 만들면 @filed:StringFormatDateTime(pattern = "yyyy-MM-dd HH:mm:ss, message = "") 할수있음.
+    // 폴더 validator 잘보셈.
     var createdAt:String?= null // yyyy-MM-dd HH:mm:ss  ex ) 2028-10-02 13:00:00
 ){
 
