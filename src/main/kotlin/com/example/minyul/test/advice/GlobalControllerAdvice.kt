@@ -25,7 +25,7 @@ class GlobalControllerAdvice {
     }
 
     @ExceptionHandler(value = [ConstraintViolationException::class])
-    fun constraintViolationException(e: ConstraintViolationException, request: HttpServletRequest) {
+    fun constraintViolationException(e: ConstraintViolationException, request: HttpServletRequest): ResponseEntity<ErrorResponse> {
         val errors = mutableListOf<Error>()
 
         e.constraintViolations.forEach {
@@ -47,5 +47,6 @@ class GlobalControllerAdvice {
             this.timestamp = LocalDateTime.now()
             this.errors = errors
         }
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorResponse)
     }
 }
