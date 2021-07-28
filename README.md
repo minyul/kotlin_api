@@ -10,3 +10,7 @@ https://github.com/minyul/kotlin_api/tree/main/src/main/kotlin/com/example/minyu
 : service login에 대해서 방해가 된다.
 : 흩어져 있는 경우 어디서 검증 되었는지 찾기 힘들다.
 : 검증 로직이 변경되는 경우 테스트 코드 등 전체로직이 흔들린다.
+
+#Exception
+- @ControllerAdvice : Global 예외 처리 및 특정  Package / Controller 예외 처리
+- @ExceptionHandler : 특정 Controller의 예외처리
